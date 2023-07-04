@@ -41,17 +41,16 @@ const readWriteExpample = async () => {
     // console.log(pathToFile);
     //===================== read json===================
     const pathToJson = path.join("files", "sample.json");
+
     const jsonResult = await fs.readFile(pathToJson);
 
     const json = JSON.parse(jsonResult);
-    // console.log(json);
-    //додаємо зміни в джейсон
-    json.location = "Ukraine";
-    //перезаписуємо в новий файл
-    await fs.writeFile("contacts.json", JSON.stringify(json));
-  } catch (error) {
-    console.log(error);
+
+    json.e = "Ukraine";
+
+    await fs.writeFile("newJson.json", JSON.stringify(json));
+  } catch (err) {
+    console.log(err);
   }
 };
-
 readWriteExpample();
